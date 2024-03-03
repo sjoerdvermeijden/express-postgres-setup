@@ -10,14 +10,18 @@ app.get('/', function (req, res) {
   res.send([
     {
         id: 0,
-        name: 'Tessa'
+        name: 'Nathan'
     },
     {
         id: 1,
         name: 'Sjoerd'
+    },
+    {
+        id: 2,
+        name: 'Mark'
     }
   ]
   )
 })
 
-app.listen(5000)
+app.listen(5050)
