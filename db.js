@@ -1,13 +1,16 @@
-const { Client } = require('pg');
+import { drizzle } from "drizzle-orm/node-postgres";
+import { Client } from "pg";
 
 const client = new Client({
-    user: 'postgres',
-    password: 'root',
-    host: 'localhost',
-    port: '5432',
-    database: 'PortfolioServer',
-  });
-  
+  user: 'postgres',
+  password: 'root',
+  host: 'localhost',
+  port: '5432',
+  database: 'PortfolioServer',
+});
+await client.connect();
+const db = drizzle(client);
+
 client.connect()
 .then(() => {
 console.log('Connected to PostgreSQL database');
@@ -16,4 +19,4 @@ console.log('Connected to PostgreSQL database');
 console.error('Error connecting to PostgreSQL database', err);
 });
 
-module.exports = client;
+module.exports = db;

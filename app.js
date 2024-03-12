@@ -3,25 +3,11 @@ const app = express()
 const cors = require("cors");
 const bodyParser = require("body-parser");
 
+const user_routes = require("./routes/user-routes");
+
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get('/', function (req, res) {
-  res.send([
-    {
-        id: 0,
-        name: 'Nathan'
-    },
-    {
-        id: 1,
-        name: 'Sjoerd'
-    },
-    {
-        id: 2,
-        name: 'Mark'
-    }
-  ]
-  )
-})
+app.use("/api", user_routes);
 
 app.listen(5050)
